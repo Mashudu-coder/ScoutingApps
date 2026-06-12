@@ -1,0 +1,51 @@
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { useSafeAreaInsets}  from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
+
+
+
+
+export default function WelcomeScreen() {
+
+    const insets =useSafeAreaInsets();
+    return (
+
+            <LinearGradient
+                colors={["#b2eaf5", "#d6f5f0", "#ffffff", "#e8fafa"]}
+                locations={[0, 0.3, 0.65, 1]}
+                start={{ x: 0.1, y: 0 }}
+                end={{ x: 0.9, y: 1 }}
+                style={{ flex: 1 }}
+>
+                {/* Layer 2 — top glow */}
+            <View style={{ position: "absolute", top: 0}}>
+                <LinearGradient colors={["rgba(0,196,222,0.28)", "transparent"]}
+                 style={{flex:1}}
+                />
+            </View>
+
+                {/* Layer 3 — bottom glow */}
+            <View style={{ position: "absolute", bottom: 0 }}>
+                <LinearGradient colors={["transparent", "rgba(0,220,190,0.20)"]}
+                 style={{flex:1}}
+                />
+            </View>
+
+                {/* Content layer — respects safe area */}
+            <View style={{ flex: 1, paddingTop: insets.top, paddingBottom: insets.bottom }}>
+    
+                <View style={{  }}>
+
+                </View>
+
+            </View>
+        </LinearGradient>
+       ); 
+    }
+
+
+
+const styles = StyleSheet.create({
+
+       });
