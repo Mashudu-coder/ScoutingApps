@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { useSafeAreaInsets}  from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 
@@ -9,6 +11,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 export default function WelcomeScreen() {
 
     const insets =useSafeAreaInsets();
+    const navigation = useNavigation();
     return (
 
             <LinearGradient
@@ -41,7 +44,7 @@ export default function WelcomeScreen() {
                 </View>
 
                 <Pressable style={styles.start-button} 
-                onPress>
+                onPress={() => navigation.navigate('LogIn')}>
                     <Text>Get Started</Text>
                 </Pressable>
                 
