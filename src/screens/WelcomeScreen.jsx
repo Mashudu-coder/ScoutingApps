@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { useSafeAreaInsets}  from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -35,10 +35,16 @@ export default function WelcomeScreen() {
                 {/* Content layer — respects safe area */}
             <View style={{ flex: 1, paddingTop: insets.top, paddingBottom: insets.bottom }}>
     
-                <View style={{  }}>
-
+                <View style={styles.textGroup}>
+                    <Text style={styles.app-name}>Prime Scout </Text>
+                    <Text style={styles.Slogan}>Duscover Talent.Build Futures.</Text>
                 </View>
 
+                <Pressable style={styles.start-button} 
+                onPress>
+                    <Text>Get Started</Text>
+                </Pressable>
+                
             </View>
         </LinearGradient>
        ); 
@@ -49,3 +55,5 @@ export default function WelcomeScreen() {
 const styles = StyleSheet.create({
 
        });
+
+       
