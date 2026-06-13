@@ -14,21 +14,21 @@ export default function AuthChoiceScreen(){
 
     const features = [
           {icon: 'users', text: 'Connect with scouts'},
-          {icons: 'zap', text: 'Showcase Your Skills'}
-    ],
+          {icon: 'zap', text: 'Showcase Your Skills'},
+    ];
 
 
     return (
-       <scrollView style={{flex:1, backgroundColor: '#ffff'}}>
+       <ScrollView style={{flex:1, backgroundColor: '#ffff'}}>
             <View style={styles.imageContainer}>
-                <Image source={require('assets/download.jpg')} style={styles.image}/>
+                <Image source={require('../assets/download.jpg')} style={styles.image}/>
                 <LinearGradient colors={['transparent', '#ffffff']} style={styles.imageFade}/>
 
                 <View style={[styles.logoRow, {top: insets.top + 10}]}>
-                    <View>
+                    <View style={styles.logoIcon}>
                         <Feather name="search" size={18} color='#fff'/>
                     </View>
-                    <Text styel={styles.logoText}>PRIME SCOUT</Text>
+                    <Text style={styles.logoText}>PRIME SCOUT</Text>
                 </View>
             </View>
 
@@ -68,7 +68,7 @@ export default function AuthChoiceScreen(){
   <Text style={styles.terms}>By continuing you agree to our Terms & Privacy Policy</Text>
 </View>
 
-       </scrollView>
+       </ScrollView>
     );
 }
 
