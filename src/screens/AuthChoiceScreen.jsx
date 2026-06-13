@@ -1,10 +1,11 @@
-import {Text, View, StyleSheet, Image, Pressable, ScrollView, Dimensions } from 'react-native';
+import {Text, View, StyleSheet, Image, Pressable, Dimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { Feather } from '@expo/vector-icons';
 import { Shadow } from 'react-native-shadow-2';
+
 
 
 export default function AuthChoiceScreen(){
@@ -19,9 +20,9 @@ export default function AuthChoiceScreen(){
 
 
     return (
-       <ScrollView style={{flex:1, backgroundColor: '#ffff'}}>
+       <View style={{flex:1, backgroundColor: '#ffff'}}>
             <View style={styles.imageContainer}>
-                <Image source={require('../assets/download.jpg')} style={styles.image}/>
+                <Image source={require('../../assets/download.jpg')} style={styles.image}/>
                 <LinearGradient colors={['transparent', '#ffffff']} style={styles.imageFade}/>
 
                 <View style={[styles.logoRow, {top: insets.top + 10}]}>
@@ -53,22 +54,20 @@ export default function AuthChoiceScreen(){
 
 
 <View style={styles.buttonsContainer}>
-  <Shadow distance={10} startColor="rgba(125,207,223,0.35)" offset={[0, 6]} style={{ width: '100%' }}>
+  
     <Pressable style={styles.createButton} onPress={() => navigation.navigate('SignUp')}>
       <LinearGradient colors={["#7dcfdf", "#80e8cc"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} style={styles.createButtonGradient}>
         <Text style={styles.createButtonText}>Create Account</Text>
       </LinearGradient>
     </Pressable>
-  </Shadow>
+  
 
   <Pressable style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
     <Text style={styles.loginButtonText}>Log In</Text>
   </Pressable>
-
-  <Text style={styles.terms}>By continuing you agree to our Terms & Privacy Policy</Text>
 </View>
 
-       </ScrollView>
+       </View>
     );
 }
 
@@ -137,8 +136,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(0,180,216,0.12)',
     borderRadius: 16,
-    padding: 14,
-    marginBottom: 12,
+    padding: 11,
+    marginBottom: 10,
     gap: 10,
   },
   featureIconBox: {
@@ -165,6 +164,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     overflow: 'hidden',
     marginBottom: 12,
+    
   },
   createButtonGradient: {
     paddingVertical: 17,
@@ -189,10 +189,5 @@ const styles = StyleSheet.create({
     color: '#00a0b8',
     fontSize: 16,
     fontWeight: '600',
-  },
-  terms: {
-    fontSize: 11,
-    color: 'rgba(4,16,28,0.3)',
-    textAlign: 'center',
-  },
+  }
 });
