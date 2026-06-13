@@ -101,12 +101,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   
-
-
-
-
-
-  logoText: {
+    logoText: {
     color: '#fff',
     fontWeight: '600',
     fontSize: 14,
