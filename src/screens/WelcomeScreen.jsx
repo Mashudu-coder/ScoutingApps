@@ -39,11 +39,11 @@ export default function WelcomeScreen() {
             <View style={{ flex: 1, paddingTop: insets.top, paddingBottom: insets.bottom }}>
     
                 <View style={styles.textGroup}>
-                    <Text style={styles.app-name}>Prime Scout </Text>
-                    <Text style={styles.Slogan}>Duscover Talent.Build Futures.</Text>
+                    <Text style={styles.appname}>Prime Scout </Text>
+                    <Text style={styles.slogan}>Duscover Talent.Build Futures.</Text>
                 </View>
 
-                <Pressable style={styles.start-button} 
+                <Pressable style={styles.startbutton} 
                 onPress={() => navigation.navigate('LogIn')}>
                     <Text>Get Started</Text>
                 </Pressable>
