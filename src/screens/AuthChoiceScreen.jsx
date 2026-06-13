@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { Feather } from '@expo/vector-icons';
 import { Shadow } from 'react-native-shadow-2';
+import {VideoView, useVideoPlayer, useVideoView} from 'expo-video';
 
 
 
@@ -12,6 +13,9 @@ export default function AuthChoiceScreen(){
 
     const insets = useSafeAreaInsets();
     const navigation = useNavigation();
+
+
+    
 
     const features = [
           {icon: 'users', text: 'Connect with scouts'},
@@ -26,9 +30,7 @@ export default function AuthChoiceScreen(){
                 <LinearGradient colors={['transparent', '#ffffff']} style={styles.imageFade}/>
 
                 <View style={[styles.logoRow, {top: insets.top + 10}]}>
-                    <View style={styles.logoIcon}>
-                        <Feather name="search" size={18} color='#fff'/>
-                    </View>
+                    
                     <Text style={styles.logoText}>PRIME SCOUT</Text>
                 </View>
             </View>
@@ -98,14 +100,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
   },
-  logoIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
-    backgroundColor: '#7dcfdf',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  
+
+
+
+
+
   logoText: {
     color: '#fff',
     fontWeight: '600',
