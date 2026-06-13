@@ -24,14 +24,14 @@ export default function WelcomeScreen() {
                 end={{ x: 0.9, y: 1 }}
                 style={{ flex: 1 }} >
                 {/* Layer 2 — top glow */}
-            <View style={{ position: "absolute", top: 0}}>
+            <View style={{ position: "absolute", bottom: 0}}>
                 <LinearGradient colors={["rgba(0,196,222,0.28)", "transparent"]}
                  style={{flex:1}}
                 />
             </View>
 
                 {/* Layer 3 — bottom glow */}
-            <View style={{ position: "absolute", bottom: 0 }}>
+            <View style={{ position: "absolute", top: 0 }}>
                 <LinearGradient colors={["transparent", "rgba(0,220,190,0.20)"]}
                  style={{flex:1}}
                 />
@@ -79,7 +79,9 @@ const styles = StyleSheet.create({
 
         slogan: {
             fontSize: 15,
-            fontFamily: 'Inter'
+            fontFamily: 'Inter',
+            colors: '#0d2f40',
+            opacity: 0.5
         },
 
         startbutton: {
@@ -95,14 +97,9 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontWeight: 'bold',
         fontSize: 16,
-        
-        fontFamily: 'monospace' ,
+               fontFamily: 'monospace' ,
 
         },
-
-            slogan:{
-
-            }
     });
 
        
