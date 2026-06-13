@@ -47,7 +47,7 @@ export default function WelcomeScreen() {
                  
             
                 <Pressable style={styles.startbutton} 
-                onPress={() => navigation.navigate('LogIn')}>
+                onPress={() => navigation.navigate('AuthChoice')}>
                         <Text style={styles.buttonText}>Get Started</Text>
                     
                     </Pressable>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
             marginBottom: 40,
             borderRadius: 20,
             paddingVertical: 14,
-            paddingHorizontal: 50,
+            paddingHorizontal: 75,
             backgroundColor: '#7dcfdf'
         },
 
@@ -100,7 +100,9 @@ const styles = StyleSheet.create({
 
         },
 
+            slogan:{
 
+            }
     });
 
        
