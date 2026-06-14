@@ -6,10 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 
 
-
-
-
-
 export default function WelcomeScreen() {
 
     
@@ -97,9 +93,11 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontWeight: 'bold',
         fontSize: 16,
-               fontFamily: 'monospace' ,
+        fontFamily: 'monospace' ,
 
         },
+
+        
     });
 
        

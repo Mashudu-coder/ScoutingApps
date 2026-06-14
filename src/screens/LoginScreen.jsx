@@ -1,10 +1,9 @@
-import React, {useState} from 'react-native';
-import {Text, View, StyleSheet, Image, TextInput, KeyboardAvoidingView, Pressable } from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, StyleSheet, Image, TextInput, KeyboardAvoidingView, Pressable, Platform, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
-import { Alert } from 'react-native/types_generated/index';
-import pageImage from 'assets\Images\Adobe Express - file.png';
+import pageImage from '../../assets/Images/Adobe Express - file.png';
 
 
 export default function LogInScreen() {
@@ -12,10 +11,13 @@ export default function LogInScreen() {
     const insets = useSafeAreaInsets();
     const navigation = useNavigation();
      
-    const [message, setMessage] = onState('');
+    const [message, setMessage] = useState('');
         return(
 
-        <KeyboardAvoidingView>
+        <KeyboardAvoidingView  style={{ flex: 1 }}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+        >
             <LinearGradient    
              colors={["#b2eaf5", "#d6f5f0", "#ffffff", "#e8fafa"]}
                 locations={[0, 0.3, 0.65, 1]}
@@ -35,27 +37,36 @@ export default function LogInScreen() {
                      />
                 </View>
 
-                <View style={styles.container, {flex:1, paddingTop: insets.top, paddingBottom: insets.bottom, }} >
 
-                    <image source={pageImage} style={styles.screenImage}/>
+                 <ScrollView
+                        contentContainerStyle={[
+                                styles.container,
+                            { 
+                                paddingTop: insets.top, 
+                                paddingBottom: insets.bottom + 16 
+                            }
+                        ]} >
+
+                <Image source={pageImage} style={styles.screenImage}/>
                
-                <Text>Welcome Back</Text>
-                <Text>Log in to continue building your future</Text>
+                
+
+                <Text style={styles.heading}>Welcome Back</Text>
+                <Text style={styles.caption}>Log in to continue building your future</Text>
 
                 <View style={styles.formContainer}>
-                     <TextInput />
                 </View>
                  
-                <Pressable styles={styles.loginBtn} onPress={() => setMessage('LogIn Success')}>
+                <Pressable style={styles.loginBtn} onPress={() => setMessage('LogIn Success')}>
                     <Text style={styles.LoginButtonText}>Login</Text>
                 </Pressable>
                     {message ? <Text style={styles.successText}>{message}</Text> : null}
                     
 
-                </View>
-
-
                 
+
+
+            </ScrollView>
             </LinearGradient>
 
         </KeyboardAvoidingView>
@@ -66,9 +77,46 @@ export default function LogInScreen() {
 const styles = StyleSheet.create({
 screenImage:{
         
-    width: 30,
-    heigh: 30,
+    width: 250,
+    height: 180,
+    alignSelf: 'center',
+    marginTop: 40,
+    marginBottom: 20,
 },
 
-   }
-)
+heading:{
+
+   fontSize: 30,
+   color: 'black',
+   marginBottom: 8,
+   fontWeight: 'bold',
+
+ 
+},
+
+caption: {
+    fontSize: 14,
+    color: '#4B5563',
+    marginBottom: 24,
+},
+
+loginBtn:{
+    alignSelf: 'center',
+    marginBottom: 40,
+    borderRadius: 25,
+    paddingVertical: 14,
+    paddingHorizontal: 90,
+    backgroundColor: '#7dcfdf'
+
+},
+
+LoginButtonText:{
+
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 16,
+    fontFamily: 'monospace' ,
+
+}
+
+});

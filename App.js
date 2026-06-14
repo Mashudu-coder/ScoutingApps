@@ -14,7 +14,7 @@ export default function App() {
       <stack.Navigator initialRouteName='Welcome' screenOptions={{headerShown: false}}>
         <stack.Screen name="Welcome" component={WelcomeScreen}/>
         <stack.Screen name='AuthChoice' component={AuthChoiceScreen}/>
-       <stack.screen  name='Login' component={LogInScreen}/>    
+       <stack.Screen  name='Login' component={LogInScreen}/>    
        
          </stack.Navigator>
     </NavigationContainer>
