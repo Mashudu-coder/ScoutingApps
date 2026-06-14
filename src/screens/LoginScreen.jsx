@@ -8,6 +8,7 @@ import ThemedTextInput from '../components/ThemedTextInput';
 
 
 
+
 export default function LogInScreen() {
 
     const insets = useSafeAreaInsets();
@@ -61,7 +62,7 @@ export default function LogInScreen() {
 
                         
                 <View style={styles.formContainer}>
-                        <Text style={{fontWeight: 'medium', marginBottom: 2, left: 5 }}>Email</Text>
+                        <Text style={{fontWeight: 'medium', marginBottom: 2, left: 5 }}>Email address*</Text>
                         <ThemedTextInput style={{ marginBottom: 20}}
                             placeholder='your.email@example.com'
                             keyboardType='email-address'
@@ -85,7 +86,9 @@ export default function LogInScreen() {
                 </Pressable>
                     {message ? <Text style={styles.successText}>{message}</Text> : null}
                     
+                       <View>
 
+                        </View>
                 
 
 
