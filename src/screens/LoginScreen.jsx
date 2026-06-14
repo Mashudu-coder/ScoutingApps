@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, Image, TextInput, KeyboardAvoidingView, Pressable, Platform, ScrollView } from 'react-native';
+import {Text, View, StyleSheet, Image, KeyboardAvoidingView, Pressable, Platform, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import pageImage from '../../assets/Images/Adobe Express - file.png';
+import ThemedTextInput from '../components/ThemedTextInput';
+
 
 
 export default function LogInScreen() {
@@ -12,6 +14,9 @@ export default function LogInScreen() {
     const navigation = useNavigation();
      
     const [message, setMessage] = useState('');
+    const [email, setEmail] = useState('');
+
+    const [password, setPassword] = useState('');
         return(
 
         <KeyboardAvoidingView  style={{ flex: 1 }}
@@ -54,7 +59,25 @@ export default function LogInScreen() {
                 <Text style={styles.heading}>Welcome Back</Text>
                 <Text style={styles.caption}>Log in to continue building your future</Text>
 
+                        
                 <View style={styles.formContainer}>
+                        <Text style={{fontWeight: 'medium', marginBottom: 2, left: 5 }}>Email</Text>
+                        <ThemedTextInput style={{ marginBottom: 20}}
+                            placeholder='your.email@example.com'
+                            keyboardType='email-address'
+                            onChangeText= {setEmail}
+                            value={email}
+                            onSubmitEditing={() => passwordRef.current ?.focus()}
+                        />
+
+                        <Text style={{fontWeight: 'medium', marginBottom: 2, left: 5}}>Password*</Text>
+                        <ThemedTextInput style={{ marginBottom: 20}}
+                            placeholder='Enter your password'
+                            onChangeText= {setPassword}
+                            value={password}
+                            secureTextEntry
+                        />
+
                 </View>
                  
                 <Pressable style={styles.loginBtn} onPress={() => setMessage('LogIn Success')}>
@@ -90,6 +113,9 @@ heading:{
    color: 'black',
    marginBottom: 8,
    fontWeight: 'bold',
+   textAlign: 'center',
+   alignItems: 'stretch',
+
 
  
 },
@@ -98,6 +124,9 @@ caption: {
     fontSize: 14,
     color: '#4B5563',
     marginBottom: 24,
+    textAlign: 'center',
+    alignSelf: 'stretch',
+
 },
 
 loginBtn:{
@@ -105,7 +134,7 @@ loginBtn:{
     marginBottom: 40,
     borderRadius: 25,
     paddingVertical: 14,
-    paddingHorizontal: 90,
+    paddingHorizontal: 100,
     backgroundColor: '#7dcfdf'
 
 },
@@ -117,6 +146,13 @@ LoginButtonText:{
     fontSize: 16,
     fontFamily: 'monospace' ,
 
-}
+},
+
+formContainer: {
+    left: 15
+},
+
+
+
 
 });
