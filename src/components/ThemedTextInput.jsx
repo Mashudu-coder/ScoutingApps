@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     textInput: {
     width:'80%',
     paddingHorizontal: 15,
-    paddingVertical: 12,
-    borderRadius: 15,
+    paddingVertical: 11,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: '#D1D5DB',
     fontSize: 16,

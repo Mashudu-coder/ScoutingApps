@@ -70,7 +70,7 @@ export default function LogInScreen() {
                             onSubmitEditing={() => passwordRef.current ?.focus()}
                         />
 
-                        <Text style={{fontWeight: 'medium', marginBottom: 2, left: 5}}>Password*</Text>
+                        <Text style={{fontWeight: 'medium', marginBottom: 2, left: 6}}>Password*</Text>
                         <ThemedTextInput style={{ marginBottom: 20}}
                             placeholder='Enter your password'
                             onChangeText= {setPassword}
