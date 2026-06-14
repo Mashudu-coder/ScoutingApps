@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import { Alert } from 'react-native/types_generated/index';
+import pageImage from 'assets\Images\Adobe Express - file.png';
 
 
 export default function LogInScreen() {
@@ -36,7 +37,7 @@ export default function LogInScreen() {
 
                 <View style={styles.container, {flex:1, paddingTop: insets.top, paddingBottom: insets.bottom, }} >
 
-                    <image source={'../assets/Images/download-removebg-preview.png'} style={styles.appLogo}/>
+                    <image source={pageImage} style={styles.screenImage}/>
                
                 <Text>Welcome Back</Text>
                 <Text>Log in to continue building your future</Text>
@@ -63,6 +64,11 @@ export default function LogInScreen() {
 
 
 const styles = StyleSheet.create({
+screenImage:{
+        
+    width: 30,
+    heigh: 30,
+},
 
-
-})
+   }
+)
