@@ -16,14 +16,16 @@ export default function ThemedTextInput({style, error, ...props}){
 const styles = StyleSheet.create({
 
     textInput: {
-    width:'80%',
+    width:'82%',
     paddingHorizontal: 15,
-    paddingVertical: 11,
-    borderRadius: 16,
+    paddingVertical: 12,
+    borderRadius: 15,
     borderWidth: 1,
     borderColor: '#D1D5DB',
     fontSize: 16,
     marginBottom: 12,
-    }
+    
+    
+}
 }
 )

@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import pageImage from '../../assets/Images/Adobe Express - file.png';
 import ThemedTextInput from '../components/ThemedTextInput';
+import Checkbox, { CheckBox } from 'expo-checkbox';
 
 
 
@@ -16,6 +17,7 @@ export default function LogInScreen() {
      
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
 
     const [password, setPassword] = useState('');
         return(
@@ -81,16 +83,31 @@ export default function LogInScreen() {
 
                 </View>
                  
+                <View style={styles.recoveryTools}>
+                           
+                        <Checkbox 
+                        value={rememberMe}
+                        onValueChange={setRememberMe}
+                        style={styles.checkBoxContainer}
+                        />
+                        <Text style={styles.toolLabel}>Remember me</Text>
+                        <Pressable style={styles.resetPasswordButton}>
+                            <Text style={styles.resetButtonLabel}>Forgot Password?</Text>
+                        </Pressable>
+                </View>
+
                 <Pressable style={styles.loginBtn} onPress={() => setMessage('LogIn Success')}>
                     <Text style={styles.LoginButtonText}>Login</Text>
                 </Pressable>
-                    {message ? <Text style={styles.successText}>{message}</Text> : null}
-                    
-                       <View>
-
-                        </View>
+                {message ? <Text style={styles.successText}>{message}</Text> : null}
                 
+                <View style={styles.registerContainer}>
 
+                    <Text style={styles.registerLabel}>Don't have an account? </Text>
+                    <Pressable onPress={() => navigation.navigate('SignUp')}>
+                        <Text style={styles.SignUpLink}>Sign Up</Text>
+                    </Pressable>
+                </View>
 
             </ScrollView>
             </LinearGradient>
@@ -137,7 +154,7 @@ loginBtn:{
     marginBottom: 40,
     borderRadius: 25,
     paddingVertical: 14,
-    paddingHorizontal: 100,
+    paddingHorizontal: 120,
     backgroundColor: '#7dcfdf'
 
 },
@@ -155,7 +172,53 @@ formContainer: {
     left: 15
 },
 
+recoveryTools:{
+    flexDirection: 'row',
+    marginBottom: 20,
+    alignItems: 'center'
+    
+},
 
+checkBoxContainer:
+{
+    marginRight: 5,
+    marginLeft: 20
+},
+
+toolLabel:{
+    color: 'gray',
+    fontSize: 14
+},
+
+resetPasswordButton:{
+    marginLeft: 60,         
+},
+
+resetButtonLabel:{
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'solid',
+    fontSize: 13,
+
+
+},
+registerContainer:{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 2,
+},
+
+SignUpLink: {
+    color: '#00BCD4',
+    fontWeight: 'semibold',
+    fontSize: 16
+},
+
+registerLabel:{
+    color: '#757575',
+    fontSize: 15,
+},
 
 
 });
