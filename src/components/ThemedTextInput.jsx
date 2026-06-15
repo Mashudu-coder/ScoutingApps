@@ -22,11 +22,9 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 15,
     borderWidth: 1,
-    borderColor: '#D1D5DB',
+    borderColor: '#777c837a',
     fontSize: 16,
     marginBottom: 12,
-    
-    
     }
   }
 )

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, Image, KeyboardAvoidingView, Pressable, Platform, ScrollView } from 'react-native';
+import {Text, View, StyleSheet, Image, KeyboardAvoidingView, Pressable, Platform, ScrollView, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
@@ -100,10 +100,10 @@ export default function LogInScreen() {
                         </Pressable>
                 </View>
 
-                <Pressable style={styles.loginBtn} onPress={() => setMessage('LogIn Success')}>
+                <Pressable style={styles.loginBtn} onPress={() => Alert.alert('Logged in succesfully')}>
                     <Text style={styles.LoginButtonText}>Login</Text>
                 </Pressable>
-                {message ? <Text style={styles.successText}>{message}</Text> : null}
+    
                 
                 <View style={styles.registerContainer}>
 

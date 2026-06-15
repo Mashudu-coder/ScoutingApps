@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Pressable, ScrollView, StyleSheet, Platform, Image,} from 'react-native';
+import {Text, View, Pressable, ScrollView, StyleSheet, Platform, Image, Alert,} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ThemedTextInput from '../components/ThemedTextInput';
@@ -17,6 +17,7 @@ export default function SignUp(){
 
      const [fullName, setFullName] = useState('');
      const [email, setEmail ] = useState('');
+     const [contactNo, setContactNo ] = useState('');
 
     return (
 
@@ -56,14 +57,21 @@ export default function SignUp(){
               onChangeText={setEmail}
            
            />
+            <Text style={{margin:5, left: 6, fontWeight: 'semibold'}}>Phone Number</Text>
+           <ThemedTextInput 
+             placeholder='+27 XX XXX XXXX'
+             value={contactNo}
+             onChangeText={setContactNo}
+             keyboardType= 'phone-pad'
+           />
 
         
             <View style={styles.buttonsContainer}>
-                <ThemeButton>
+                <ThemeButton onPress={() =>Alert.alert('Account Created')}>
                     <Text style={styles.buttonLabel}>Create Account</Text>
                 </ThemeButton>
 
-                <Pressable style={styles.backButton} onPress={() => navigation.navigate('SignUp')}>
+                <Pressable style={styles.backButton} onPress={() => navigation.navigate('Login')}>
                     <Text style={styles.backBtnLabel}>Back to Login</Text>
                     </Pressable>
             </View>
