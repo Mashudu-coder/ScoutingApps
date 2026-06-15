@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import pageImage from '../../assets/Images/Adobe Express - file.png';
 import ThemedTextInput from '../components/ThemedTextInput';
 import Checkbox, { CheckBox } from 'expo-checkbox';
-
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 
@@ -22,12 +22,16 @@ export default function LogInScreen() {
     const [password, setPassword] = useState('');
         return(
 
-        <KeyboardAvoidingView  style={{ flex: 1 }}
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+        <KeyboardAwareScrollView  
+                tyle={{ flex: 1 }}
+                contentContainerStyle={{ flexGrow: 1 }}
+                enableOnAndroid={true}
+                extraScrollHeight={Platform.OS === 'ios' ? 0 : 20}
+                keyboardShouldPersistTaps="handled"
+                showsVerticalScrollIndicator={false}
         >
             <LinearGradient    
-             colors={["#b2eaf5", "#d6f5f0", "#ffffff", "#e8fafa"]}
+                colors={["#b2eaf5", "#d6f5f0", "#ffffff", "#e8fafa"]}
                 locations={[0, 0.3, 0.65, 1]}
                 start={{ x: 0.1, y: 0 }}
                 end={{ x: 0.9, y: 1 }}
@@ -112,7 +116,7 @@ export default function LogInScreen() {
             </ScrollView>
             </LinearGradient>
 
-        </KeyboardAvoidingView>
+        </KeyboardAwareScrollView>
     );
 }
 
