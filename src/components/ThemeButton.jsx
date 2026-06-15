@@ -12,13 +12,17 @@ export default function ThemedPressable({style, ...props}){
 
 const styles = StyleSheet.create({
     pressable:{
-        alignSelf: 'center',
-    marginBottom: 40,
+
+    alignSelf: 'center',
+    right: 5,
+    marginBottom: 25,
     borderRadius: 25,
     paddingVertical: 14,
-    paddingHorizontal: 120,
+    paddingHorizontal: 90,
     backgroundColor: '#7dcfdf'      
         
-    }
+    },
+
+    
 
 })

@@ -15,8 +15,8 @@ export default function SignUp(){
      const navigation = useNavigation();
      const insets = useSafeAreaInsets();
 
-     const [firstName, setFirstName] = useState('');
-     const [lastName, setLastName ] = useState('');
+     const [fullName, setFullName] = useState('');
+     const [email, setEmail ] = useState('');
 
     return (
 
@@ -40,35 +40,34 @@ export default function SignUp(){
             showsVerticalScrollIndicator={false}
         >
 
-            <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>First Name</Text>
+            <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Full Name</Text>
             <ThemedTextInput
-              placeholder='Enter your first name'
+              placeholder='Enter your full name'
               autoCapitalise = 'none'
-              value={firstName}
-              onChangeText={(text) => setFirstName(text)}
+              value={fullName}
+              onChangeText={setFullName}
             />
 
-               <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Last Name</Text>
-            <ThemedTextInput
-              placeholder='Enter your last name'
-              autoCapitalise = 'none'
-              value={lastName}
-              onChangeText={(text) => setLastName(text)}
-            /> 
+           <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Email</Text>
+           <ThemedTextInput
+              placeholder= 'yourEmail@example.com'
+              autoCapitalise= 'none'
+              value={email}
+              onChangeText={setEmail}
+           
+           />
 
-                
-
-
+        
             <View style={styles.buttonsContainer}>
                 <ThemeButton>
-                    <Text style={style.buttonLabel}>Create Account</Text>
+                    <Text style={styles.buttonLabel}>Create Account</Text>
                 </ThemeButton>
 
                 <Pressable style={styles.backButton} onPress={() => navigation.navigate('SignUp')}>
                     <Text style={styles.backBtnLabel}>Back to Login</Text>
                     </Pressable>
             </View>
-
+ 
            </KeyboardAwareScrollView>
              </View>
     )
@@ -99,6 +98,28 @@ const styles= StyleSheet.create({
     container:{
         left: 14,
         
-    }
+    },
+
+  buttonLabel:{
+    color: '#ffff',
+    fontWeight: 'bold',
+    fontSize: 15,
+    alignContent: 'center'
+
+  },
+
+  buttonsContainer:{
+
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 20,
+    paddingBottom: 30,
+  },
+
+  backBtnLabel:{
+
+    color: 'gray',
+    fontSize: 16,
+  }
 
 })

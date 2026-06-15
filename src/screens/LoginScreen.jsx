@@ -74,7 +74,7 @@ export default function LogInScreen() {
                             keyboardType='email-address'
                             onChangeText= {setEmail}
                             value={email}
-                            onSubmitEditing={() => passwordRef.current ?.focus()}
+                            onSubmitEditing={() => password.current ?.focus()}
                         />
 
                         <Text style={{fontWeight: 'medium', marginBottom: 2, left: 6}}>Password*</Text>
