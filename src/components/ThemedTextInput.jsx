@@ -1,7 +1,7 @@
 import React from 'react';
 import {TextInput, StyleSheet } from 'react-native';
 
-export default function ThemedTextInput({style, error, ...props}){
+export default function ThemedTextInput({style, ...props}){
 
     
 
@@ -15,7 +15,8 @@ export default function ThemedTextInput({style, error, ...props}){
 
 const styles = StyleSheet.create({
 
-    textInput: {
+  textInput: {
+
     width:'82%',
     paddingHorizontal: 15,
     paddingVertical: 12,
@@ -26,6 +27,6 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     
     
-}
-}
+    }
+  }
 )

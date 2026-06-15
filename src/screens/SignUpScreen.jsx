@@ -5,7 +5,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ThemedTextInput from '../components/ThemedTextInput';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import appLogo from '../../assets/Images/Untitled design-Photoroom.png';
-import {useState} from 'react'
+import {useState} from 'react';
+import ThemeButton from '../components/ThemeButton';
 
 
 
@@ -54,6 +55,19 @@ export default function SignUp(){
               value={lastName}
               onChangeText={(text) => setLastName(text)}
             /> 
+
+                
+
+
+            <View style={styles.buttonsContainer}>
+                <ThemeButton>
+                    <Text style={style.buttonLabel}>Create Account</Text>
+                </ThemeButton>
+
+                <Pressable style={styles.backButton} onPress={() => navigation.navigate('SignUp')}>
+                    <Text style={styles.backBtnLabel}>Back to Login</Text>
+                    </Pressable>
+            </View>
 
            </KeyboardAwareScrollView>
              </View>
