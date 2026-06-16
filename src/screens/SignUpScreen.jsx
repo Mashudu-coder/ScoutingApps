@@ -7,6 +7,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import appLogo from '../../assets/Images/Untitled design-Photoroom.png';
 import {useState} from 'react';
 import ThemeButton from '../components/ThemeButton';
+import ThemedRoleCard from '../components/ThemedRoleCards';
 
 
 
@@ -21,6 +22,7 @@ export default function SignUp(){
      const [password, setPassword] = useState('');
      const [confirmPassword, setConfirmPassword] = useState('');
      const [isSecure, setIsSecure] = useState(true);
+     const [selectedRole, setSelectedRole ] = useState('');
       
 
     return (
@@ -94,6 +96,13 @@ export default function SignUp(){
              /> 
 
               <Text>Select Role</Text>
+              <View style={styles.roleCardsContainer}>
+
+                <ThemedRoleCard onPress={() => setSelectedRole('Player')}  >
+                  <Text>Player</Text>
+                </ThemedRoleCard>
+
+              </View>
         
             <View style={styles.buttonsContainer}>
                 <ThemeButton onPress={() =>Alert.alert('Account Created')}
