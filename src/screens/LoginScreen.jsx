@@ -8,7 +8,7 @@ import ThemedTextInput from '../components/ThemedTextInput';
 import Checkbox, { CheckBox } from 'expo-checkbox';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-
+const userRoles = ['Player', 'Coach', 'Parent', 'Scout']
 
 export default function LogInScreen() {
 
@@ -18,7 +18,7 @@ export default function LogInScreen() {
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
-
+    
     const [password, setPassword] = useState('');
         return(
 
@@ -93,9 +93,11 @@ export default function LogInScreen() {
                         value={rememberMe}
                         onValueChange={setRememberMe}
                         style={styles.checkBoxContainer}
+                        hitSlop={{top:30, bottom: 30, left: 30, right: 30}}
                         />
                         <Text style={styles.toolLabel}>Remember me</Text>
-                        <Pressable style={styles.resetPasswordButton}>
+                        <Pressable style={styles.resetPasswordButton}
+                        >
                             <Text style={styles.resetButtonLabel}>Forgot Password?</Text>
                         </Pressable>
                 </View>
@@ -108,7 +110,8 @@ export default function LogInScreen() {
                 <View style={styles.registerContainer}>
 
                     <Text style={styles.registerLabel}>Don't have an account? </Text>
-                    <Pressable onPress={() => navigation.navigate('SignUp')}>
+                    <Pressable onPress={() => navigation.navigate('SignUp')}
+                        hitSlop={{top:20, bottom: 20, left: 20, right: 20}}>
                         <Text style={styles.SignUpLink}>Sign Up</Text>
                     </Pressable>
                 </View>
