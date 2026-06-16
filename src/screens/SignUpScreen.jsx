@@ -36,7 +36,7 @@ export default function SignUp(){
            
 
           <KeyboardAwareScrollView
-            style={{ flex: 1 }, styles.container}
+            style={[{ flex: 1 }, styles.container]}
             contentContainerStyle={{ 
                 flexGrow: 1, 
                 paddingTop: insets.top, 
@@ -50,7 +50,7 @@ export default function SignUp(){
             <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Full Name</Text>
             <ThemedTextInput
               placeholder='Enter your full name'
-              autoCapitalise = 'none'
+              autoCapitalize = 'none'
               value={fullName}
               onChangeText={setFullName}
              
@@ -61,7 +61,7 @@ export default function SignUp(){
            <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Email</Text>
            <ThemedTextInput
               placeholder= 'your.email@example.com'
-              autoCapitalise= 'none'
+              autoCapitalize= 'none'
               value={email}
               onChangeText={setEmail}
            
@@ -79,7 +79,7 @@ export default function SignUp(){
              value={password}
              onChangeText={setPassword}
              secureTextEntry={isSecure}
-             autoCapitalise= 'none'
+             autoCapitalize= 'none'
              textContentType= 'password'
              autoCorrect= {false}
              /> 
@@ -90,7 +90,7 @@ export default function SignUp(){
              value={confirmPassword}
              onChangeText={setConfirmPassword}
              secureTextEntry={isSecure}
-             autoCapitalise= 'none'
+             autoCapitalize= 'none'
              textContentType= 'password'
              autoCorrect= {false}
              /> 

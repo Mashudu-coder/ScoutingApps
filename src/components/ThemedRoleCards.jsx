@@ -24,10 +24,11 @@ export default function ThemedRoleCard({style,onFocus, onBlur, ...props}){
 
         {...props}
 
-        />
+        >
 
+          {props.children}
+          </Pressable>
         </View>
-
     )
     
 }

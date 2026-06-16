@@ -16,7 +16,7 @@ export default function ThemedTextInput({style, onFocus, onBlur, ...props}){
 
   onBlur = {(e) => {
     setIsFocused(false);
-    if (onFocus) onFocus(e);
+    if (onBlur) onBlur(e);
   }}
             {...props}
   />
