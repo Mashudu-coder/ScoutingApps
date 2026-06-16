@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, StyleSheet, Image, KeyboardAvoidingView, Pressable, Platform, ScrollView } from 'react-native';
+import {Text, View, StyleSheet, Image, KeyboardAvoidingView, Pressable, Platform, ScrollView, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
@@ -8,7 +8,7 @@ import ThemedTextInput from '../components/ThemedTextInput';
 import Checkbox, { CheckBox } from 'expo-checkbox';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-
+const userRoles = ['Player', 'Coach', 'Parent', 'Scout']
 
 export default function LogInScreen() {
 
@@ -18,7 +18,7 @@ export default function LogInScreen() {
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
-
+    
     const [password, setPassword] = useState('');
         return(
 
@@ -74,7 +74,7 @@ export default function LogInScreen() {
                             keyboardType='email-address'
                             onChangeText= {setEmail}
                             value={email}
-                            onSubmitEditing={() => passwordRef.current ?.focus()}
+                            onSubmitEditing={() => password.current ?.focus()}
                         />
 
                         <Text style={{fontWeight: 'medium', marginBottom: 2, left: 6}}>Password*</Text>
@@ -93,22 +93,25 @@ export default function LogInScreen() {
                         value={rememberMe}
                         onValueChange={setRememberMe}
                         style={styles.checkBoxContainer}
+                        hitSlop={{top:30, bottom: 30, left: 30, right: 30}}
                         />
                         <Text style={styles.toolLabel}>Remember me</Text>
-                        <Pressable style={styles.resetPasswordButton}>
+                        <Pressable style={styles.resetPasswordButton}
+                        >
                             <Text style={styles.resetButtonLabel}>Forgot Password?</Text>
                         </Pressable>
                 </View>
 
-                <Pressable style={styles.loginBtn} onPress={() => setMessage('LogIn Success')}>
+                <Pressable style={styles.loginBtn} onPress={() => Alert.alert('Logged in succesfully')}>
                     <Text style={styles.LoginButtonText}>Login</Text>
                 </Pressable>
-                {message ? <Text style={styles.successText}>{message}</Text> : null}
+    
                 
                 <View style={styles.registerContainer}>
 
                     <Text style={styles.registerLabel}>Don't have an account? </Text>
-                    <Pressable onPress={() => navigation.navigate('SignUp')}>
+                    <Pressable onPress={() => navigation.navigate('SignUp')}
+                        hitSlop={{top:20, bottom: 20, left: 20, right: 20}}>
                         <Text style={styles.SignUpLink}>Sign Up</Text>
                     </Pressable>
                 </View>

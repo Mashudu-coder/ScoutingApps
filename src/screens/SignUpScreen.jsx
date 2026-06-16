@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text, View, Pressable, ScrollView, StyleSheet, Platform, Image,} from 'react-native';
+import {Text, View, Pressable, ScrollView, StyleSheet, Platform, Image, Alert} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ThemedTextInput from '../components/ThemedTextInput';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import appLogo from '../../assets/Images/Untitled design-Photoroom.png';
-import {useState} from 'react'
+import {useState} from 'react';
+import ThemeButton from '../components/ThemeButton';
+import ThemedRoleCard from '../components/ThemedRoleCards';
 
 
 
@@ -14,8 +16,14 @@ export default function SignUp(){
      const navigation = useNavigation();
      const insets = useSafeAreaInsets();
 
-     const [firstName, setFirstName] = useState('');
-     const [lastName, setLastName ] = useState('');
+     const [fullName, setFullName] = useState('');
+     const [email, setEmail ] = useState('');
+     const [contactNo, setContactNo ] = useState('');
+     const [password, setPassword] = useState('');
+     const [confirmPassword, setConfirmPassword] = useState('');
+     const [isSecure, setIsSecure] = useState(true);
+     const [selectedRole, setSelectedRole ] = useState('');
+      
 
     return (
 
@@ -39,22 +47,75 @@ export default function SignUp(){
             showsVerticalScrollIndicator={false}
         >
 
-            <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>First Name</Text>
+            <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Full Name</Text>
             <ThemedTextInput
-              placeholder='Enter your first name'
+              placeholder='Enter your full name'
               autoCapitalise = 'none'
-              value={firstName}
-              onChangeText={(text) => setFirstName(text)}
+              value={fullName}
+              onChangeText={setFullName}
+             
+
+              
             />
 
-               <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Last Name</Text>
-            <ThemedTextInput
-              placeholder='Enter your last name'
-              autoCapitalise = 'none'
-              value={lastName}
-              onChangeText={(text) => setLastName(text)}
-            /> 
+           <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Email</Text>
+           <ThemedTextInput
+              placeholder= 'your.email@example.com'
+              autoCapitalise= 'none'
+              value={email}
+              onChangeText={setEmail}
+           
+           />
+            <Text style={{margin:5, left: 6, fontWeight: 'semibold'}}>Phone Number</Text>
+           <ThemedTextInput 
+             placeholder='+27 XX XXX XXXX'
+             value={contactNo}
+             onChangeText={setContactNo}
+             keyboardType= 'phone-pad'
+           />
+             <Text style={{margin:5, left: 6, fontWeight: 'semibold'}}>Password*</Text>
+           <ThemedTextInput 
+             placeholder='Create a password (min 6 character)'
+             value={password}
+             onChangeText={setPassword}
+             secureTextEntry={isSecure}
+             autoCapitalise= 'none'
+             textContentType= 'password'
+             autoCorrect= {false}
+             /> 
 
+              <Text style={{margin:5, left: 6, fontWeight: 'semibold'}}>Confirm Password*</Text>
+           <ThemedTextInput 
+             placeholder='confirm your password'
+             value={confirmPassword}
+             onChangeText={setConfirmPassword}
+             secureTextEntry={isSecure}
+             autoCapitalise= 'none'
+             textContentType= 'password'
+             autoCorrect= {false}
+             /> 
+
+              <Text>Select Role</Text>
+              <View style={styles.roleCardsContainer}>
+
+                <ThemedRoleCard onPress={() => setSelectedRole('Player')}  >
+                  <Text>Player</Text>
+                </ThemedRoleCard>
+
+              </View>
+        
+            <View style={styles.buttonsContainer}>
+                <ThemeButton onPress={() =>Alert.alert('Account Created')}
+                  >
+                    <Text style={styles.buttonLabel}>Create Account</Text>
+                </ThemeButton>
+
+                <Pressable style={styles.backButton} onPress={() => navigation.navigate('Login')}
+                  hitSlop={{top: 20, bottom: 20, left: 20, right: 20}}>
+                    <Text style={styles.backBtnLabel}>Back to Login</Text>
+                    </Pressable>
+            </View>
+ 
            </KeyboardAwareScrollView>
              </View>
     )
@@ -85,6 +146,32 @@ const styles= StyleSheet.create({
     container:{
         left: 14,
         
-    }
+    },
+
+  buttonLabel:{
+    color: '#ffff',
+    fontWeight: 'bold',
+    fontSize: 15,
+    alignContent: 'center',
+  
+
+  },
+
+  buttonsContainer:{
+
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 20,
+    paddingBottom: 30,
+    paddingLeft: 4
+    
+  },
+
+  backBtnLabel:{
+
+    color: 'gray',
+    fontSize: 16,
+  },
 
 })
