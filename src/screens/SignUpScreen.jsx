@@ -100,6 +100,7 @@ export default function SignUp(){
 
                 <ThemedRoleCard onPress={() => setSelectedRole('Player')}  >
                   <Text>Player</Text>
+                  
                 </ThemedRoleCard>
 
               </View>

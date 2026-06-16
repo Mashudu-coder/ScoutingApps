@@ -1,15 +1,15 @@
 import React from 'react';
-import {StyleSheet, Pressable, View } from 'react';
-import {useState } from 'react-native';
+import {StyleSheet, Pressable, View } from 'react-native';
+import {useState } from 'react';
 
 
-export default function ThemedRoleCard(style,onFocus, onBlur, ...props){
+export default function ThemedRoleCard({style,onFocus, onBlur, ...props}){
 
     const [isFocused, setIsFocused] = useState(false)
 
     return(
 
-        <View styles={styles.roleCardContainer}>
+        <View style={styles.roleCardContainer}>
 
         <Pressable style={[styles.styleButton, style, isFocused && styles.focusedButton]}
         onFocus = {(e) => {
@@ -18,8 +18,8 @@ export default function ThemedRoleCard(style,onFocus, onBlur, ...props){
         }}
 
         onBlur = {(e) => {
-            setIsFocused(true);
-            if(onFocus) onFocus(e);
+            setIsFocused(false);
+            if(onBlur) onBlur(e);
         }}
 
         {...props}
@@ -40,15 +40,19 @@ const styles = StyleSheet.create({
         },
 
         styleButton:{
+        width: '50%',      
+        aspectRatio: 1,  
+        padding: 10,
+
 
         }, 
 
         roleCardContainer:
         {
-            flex: 1,
+        flex: 1,
          flexDirection: 'row',
-    flexWrap: 'wrap', // Forces items to wrap into a grid
-    padding: 10,
-    backgroundColor: '#f5f5f5',
+         flexWrap: 'wrap', 
+         padding: 10,
+         backgroundColor: '#f5f5f5',
         }
 })

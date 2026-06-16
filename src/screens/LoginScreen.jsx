@@ -118,7 +118,6 @@ export default function LogInScreen() {
 
             </ScrollView>
             </LinearGradient>
-
         </KeyboardAwareScrollView>
     );
 }
