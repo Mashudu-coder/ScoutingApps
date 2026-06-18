@@ -27,12 +27,7 @@ export default function SignUp(){
 
     return (
 
-        <View style={{flex: 1}}>
-
-            <View style={styles.pageHeading}>
-                 <Image source={appLogo} style={styles.styleLogo} />
-                 <Text style={styles.logoText}>RIME SCOUT</Text>
-            </View>
+        <View style={{flex: 1, backgroundColor: '#ddf5ff'}}>
            
 
           <KeyboardAwareScrollView
@@ -46,6 +41,10 @@ export default function SignUp(){
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
         >
+           <View style={styles.pageHeading}>
+                 <Image source={appLogo} style={styles.styleLogo} />
+                 <Text style={styles.logoText}>RIME SCOUT</Text>
+            </View>
 
             <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Full Name</Text>
             <ThemedTextInput
@@ -66,14 +65,14 @@ export default function SignUp(){
               onChangeText={setEmail}
            
            />
-            <Text style={{margin:5, left: 6, fontWeight: 'semibold'}}>Phone Number</Text>
+            <Text style={{margin:5, left: 2, fontWeight: 'semibold'}}>Phone Number</Text>
            <ThemedTextInput 
              placeholder='+27 XX XXX XXXX'
              value={contactNo}
              onChangeText={setContactNo}
              keyboardType= 'phone-pad'
            />
-             <Text style={{margin:5, left: 6, fontWeight: 'semibold'}}>Password*</Text>
+             <Text style={{margin:5, left: 3, fontWeight: 'semibold'}}>Password*</Text>
            <ThemedTextInput 
              placeholder='Create a password (min 6 character)'
              value={password}
@@ -84,7 +83,7 @@ export default function SignUp(){
              autoCorrect= {false}
              /> 
 
-              <Text style={{margin:5, left: 6, fontWeight: 'semibold'}}>Confirm Password*</Text>
+              <Text style={{margin:5, left: 3, fontWeight: 'semibold'}}>Confirm Password*</Text>
            <ThemedTextInput 
              placeholder='confirm your password'
              value={confirmPassword}
@@ -95,15 +94,7 @@ export default function SignUp(){
              autoCorrect= {false}
              /> 
 
-              <Text>Select Role</Text>
-              <View style={styles.roleCardsContainer}>
-
-                <ThemedRoleCard onPress={() => setSelectedRole('Player')}  >
-                  <Text>Player</Text>
-                  
-                </ThemedRoleCard>
-
-              </View>
+              
         
             <View style={styles.buttonsContainer}>
                 <ThemeButton onPress={() =>Alert.alert('Account Created')}
@@ -125,16 +116,21 @@ export default function SignUp(){
 const styles= StyleSheet.create({
     styleLogo:{
      width: 180,
-    height: 150,
+    height: 170,
     resizeMode: 'contain',
     alignSelf: 'flex-start', 
     marginLeft: -50,          
-    marginBottom: 20,
+ 
                
     },
 
     pageHeading: {
         flexDirection: 'row',
+        alignContent: 'center',
+        marginBottom: -60,
+        right: 18,
+        bottom: 22
+        
     },
      
     logoText:{
@@ -142,11 +138,10 @@ const styles= StyleSheet.create({
     marginLeft: -69,          
     marginTop: 50,
     fontWeight: 'bold',
-    fontSize: 18         
+    fontSize: 20         
     },
     container:{
-        left: 14,
-        
+        left: 14,  
     },
 
   buttonLabel:{
