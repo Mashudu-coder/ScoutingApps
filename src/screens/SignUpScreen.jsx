@@ -8,6 +8,8 @@ import appLogo from '../../assets/Images/Untitled design-Photoroom.png';
 import {useState} from 'react';
 import ThemeButton from '../components/ThemeButton';
 import ThemedRoleCard from '../components/ThemedRoleCards';
+import DatePickerField from '../components/DatePicker';
+
 
 
 
@@ -23,6 +25,7 @@ export default function SignUp(){
      const [confirmPassword, setConfirmPassword] = useState('');
      const [isSecure, setIsSecure] = useState(true);
      const [selectedRole, setSelectedRole ] = useState('');
+     const {dateOfBirth, setDateOfBirth } = useState('');
       
 
     return (
@@ -52,9 +55,7 @@ export default function SignUp(){
               autoCapitalize = 'none'
               value={fullName}
               onChangeText={setFullName}
-             
-
-              
+              autoComplete= 'true'
             />
 
            <Text style={{marginBottom: 5, left: 6, fontWeight: 'semibold'}}>Email</Text>
@@ -72,6 +73,13 @@ export default function SignUp(){
              onChangeText={setContactNo}
              keyboardType= 'phone-pad'
            />
+              <DatePickerField
+                label="Date of birth"
+                  value={dateOfBirth}
+                onChange={(date) => setDateOfBirth(date)}
+              />
+
+
              <Text style={{margin:5, left: 3, fontWeight: 'semibold'}}>Password*</Text>
            <ThemedTextInput 
              placeholder='Create a password (min 6 character)'
