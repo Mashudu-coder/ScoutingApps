@@ -127,9 +127,9 @@ const styles= StyleSheet.create({
     pageHeading: {
         flexDirection: 'row',
         alignContent: 'center',
-        marginBottom: -60,
+        marginBottom: -75,
         right: 18,
-        bottom: 22
+        bottom: 30
         
     },
      
@@ -147,7 +147,7 @@ const styles= StyleSheet.create({
   buttonLabel:{
     color: '#ffff',
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 16,
     alignContent: 'center',
   
 
@@ -168,6 +168,7 @@ const styles= StyleSheet.create({
 
     color: 'gray',
     fontSize: 16,
+    fontWeight: 'bold'
   },
 
 })
